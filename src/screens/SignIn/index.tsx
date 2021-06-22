@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-  StatusBar,
 } from 'react-native';
 
 import { styles } from './styles';
@@ -12,13 +11,7 @@ import IllustrationImg from '../../assets/illustration.png';
 
 export function SignIn() {
   return (
-    <View style={styles.container}>
-
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor='transparent'
-        translucent
-      />
+    <View style={styles.container}>      
 
       <Image
         source={IllustrationImg}      
@@ -29,9 +22,9 @@ export function SignIn() {
       <View style={styles.content}>
 
         <Text style={styles.title}>
-          Organize {`\n`}
-          suas jogatinas {`\n`}
-          facilmente!
+          Conecte-se {'\n'}
+          e organize {'\n'}
+          suas jogatinas
         </Text>
 
         <Text style={styles.subTitle}>
