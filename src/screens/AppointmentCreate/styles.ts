@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
+    marginBottom: 12
   },
   form: {
     paddingHorizontal: 24,
@@ -31,9 +32,9 @@ export const styles = StyleSheet.create({
   image: {
     width: 64,
     height: 68,
-    backgroundColor: theme.colors.secondary50,
-    borderWidth: 1,
+    backgroundColor: theme.colors.secondary40,
     borderColor: theme.colors.secondary50,
+    borderWidth: 1,
     borderRadius: 8,    
   },
   selectBody: {

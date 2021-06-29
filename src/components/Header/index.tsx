@@ -45,7 +45,9 @@ export function Header({title, action} : Props) {
         </Text>
       
         {
-          action &&
+          action
+          ?
+
           <BorderlessButton>
             <Fontisto
               name= "share"
@@ -53,6 +55,9 @@ export function Header({title, action} : Props) {
               color={theme.colors.primary}
             />
           </BorderlessButton>
+
+          :
+          <View style={{width: 24}} />
         }
 
     </LinearGradient>
