@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { 
   View,
   Text,
@@ -22,6 +23,16 @@ export function Home() {
 
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory( "" ) : setCategory(categoryId);    
+  }
+
+  const navigation = useNavigation();
+
+  function handleAppointmentDetails() {
+    navigation.navigate('AppointmentDetails')
+  }
+  
+  function handleAppointmentCreate() {
+    navigation.navigate('AppointmentCreate')
   }
 
   const appointments = [
@@ -58,7 +69,9 @@ export function Home() {
         <View style={styles.header}>
 
           <Profile />
-          <ButtonAdd />
+          <ButtonAdd
+            onPress={handleAppointmentCreate}
+          />
 
         </View>
         
@@ -78,7 +91,10 @@ export function Home() {
           data={appointments}
           keyExtractor={item => item.id}
           renderItem={({item}) => (
-            <Appointment data={item} />
+            <Appointment
+              data={item}
+              onPress={handleAppointmentDetails}
+              />
           )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
