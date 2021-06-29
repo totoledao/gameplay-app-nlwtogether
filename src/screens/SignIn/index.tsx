@@ -7,16 +7,20 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 import { styles } from './styles';
+import { useAuth } from '../../hooks/auth';
+
+import { Background } from '../../components/Background';
 import { ButtonIcon } from "../../components/ButtonIcon";
 import IllustrationImg from '../../assets/illustration.png';
-import { Background } from '../../components/Background';
 
 export function SignIn() {
 
   const navigation = useNavigation();
 
+  const { user } = useAuth();
+
   function handleSignIn() {
-    navigation.navigate('Home');
+    navigation.navigate('Home');    ;
   }
 
     return (
