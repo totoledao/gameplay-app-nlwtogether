@@ -30,7 +30,7 @@ export function Guild({data, ...rest} : Props) {
       {...rest}
     >
 
-      <GuildIcon />
+      <GuildIcon guildID={data.id} iconId={data.icon} />
 
       <View style={styles.content}>
         <View>

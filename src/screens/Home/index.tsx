@@ -1,126 +1,61 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useCallback } from 'react';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { 
   View,
   Text,
   Image,
   FlatList,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { styles } from './styles';
-import { Background } from '../../components/Background';
+import { COLLECTION_APPOINTMENTS } from '../../configs/database';
 
+import { Background } from '../../components/Background';
 import { Profile } from "../../components/Profile";
 import { ButtonAdd } from '../../components/ButtonAdd';
 import { CategorySelect } from '../../components/CategorySelect';
 import { ListHeader } from '../../components/ListHeader';
-import { Appointment } from '../../components/Appointment';
+import { Appointment, AppointmentProps } from '../../components/Appointment';
 import { ListDivider } from '../../components/ListDivider';
+import { Loading } from '../../components/Loading';
 
 export function Home() {
 
   const [category, setCategory] = useState( "" );
-
+  const [appointments, setAppointments] = useState<AppointmentProps[]>([]);
+  const [loading, setLoading] = useState(true)
+;
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory( "" ) : setCategory(categoryId);    
   }
 
   const navigation = useNavigation();
 
-  function handleAppointmentDetails() {
-    navigation.navigate('AppointmentDetails')
+  function handleAppointmentDetails(guildSelected: AppointmentProps) {
+    navigation.navigate('AppointmentDetails', { guildSelected: guildSelected })
   }
   
   function handleAppointmentCreate() {
     navigation.navigate('AppointmentCreate')
   }
+ 
+  async function loadAppointments() {
+    const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
+    const storage: AppointmentProps[] = response ? JSON.parse(response) : [];
 
-  const appointments = [
-    {
-    id: '1',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: true,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '2',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: false,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '3',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: false,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '4',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: true,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '5',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: true,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '6',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: true,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-    id: '7',
-    guild: {
-      id: '1',
-      name: 'Lendários',
-      icon: null,
-      owner: true,
-      },
-    category: '1',
-    date: '22/06 às 20:40h',
-    description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
+    if(category){
+      setAppointments(storage.filter(item => item.category === category));
+    } else {
+      setAppointments(storage)
     }
-  ]
+
+    setLoading(false);
+  }
+
+  useFocusEffect(useCallback(() => {
+    loadAppointments();
+  },[category]))
 
   return (
     <Background>
@@ -133,38 +68,43 @@ export function Home() {
             onPress={handleAppointmentCreate}
           />
 
-        </View>
-        
-        <CategorySelect
-          categorySelected={category}
-          setCategory={handleCategorySelect}
-        />      
-
-        <View style={styles.content}>
-          <ListHeader
-            title="Partidas agendadas"
-            subtitle="Total: 6"
+        </View>        
+          <CategorySelect
+            categorySelected={category}
+            setCategory={handleCategorySelect}
           />
-        </View>
+         </View>     
 
-      </View>
+      {
+        loading ?
+        <Loading />
+        :
+        <>
+          <View style={styles.content}>
+              <ListHeader
+                title="Partidas agendadas"
+                subtitle={`Total: ${appointments.length}`}
+              />
+            </View>      
 
-      <FlatList
-        data={appointments}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <Appointment
-            data={item}
-            onPress={handleAppointmentDetails}
-            />
-        )}
-        ItemSeparatorComponent={() => <ListDivider />}
-        style={styles.matches}
-        contentContainerStyle={{paddingBottom: 27}}
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={() => <ListDivider />}
-      />   
-      
+          <FlatList
+            data={appointments}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => (
+              <Appointment
+                data={item}
+                onPress={() => handleAppointmentDetails(item)}
+                />
+            )}
+            ItemSeparatorComponent={() => <ListDivider />}
+            style={styles.matches}
+            contentContainerStyle={{paddingBottom: 27}}
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={() => <ListDivider />}
+          />
+        </> 
+      }
+
     </Background>
   );
 }

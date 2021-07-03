@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   View,
   FlatList,
@@ -8,6 +8,9 @@ import { styles } from './styles';
 import { Background } from '../../components/Background';
 import { Guild, GuildProps } from '../../components/Guild';
 import { ListDivider } from '../../components/ListDivider';
+import { Loading } from '../../components/Loading';
+import { api } from '../../services/api';
+import { useEffect } from 'react';
 
 type Props = {
   handleGuildSelected: (guild: GuildProps) => void;
@@ -15,56 +18,27 @@ type Props = {
 
 export function Guilds({handleGuildSelected} : Props) {
 
-  const guilds= [
-    {
-      id: '1',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-    {
-      id: '2',
-      name:'Lendários',
-      icon: null,
-      owner: false,
-    },
-    {
-      id: '3',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-    {
-      id: '4',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-    {
-      id: '5',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-    {
-      id: '6',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-    {
-      id: '7',
-      name:'Lendários',
-      icon: null,
-      owner: true,
-    },
-  ];
+  const [guilds, setGuilds] = useState<GuildProps[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  async function fetchGuilds() {
+    const response = await api.get('users/@me/guilds');
 
+    setGuilds(response.data);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchGuilds();
+  },[])
     return (
       
         <View style={styles.container}>
 
-          <FlatList
+          { loading?
+            <Loading />
+            :
+            <FlatList
             data={guilds}
             keyExtractor={item => item.id }
             showsVerticalScrollIndicator={false}
@@ -78,7 +52,8 @@ export function Guilds({handleGuildSelected} : Props) {
             ListHeaderComponent={() => <ListDivider />}
             style={styles.guilds}
             contentContainerStyle={{paddingBottom: 27, paddingTop: 103}}
-          />
+            />
+          }
           
         </View>      
     );

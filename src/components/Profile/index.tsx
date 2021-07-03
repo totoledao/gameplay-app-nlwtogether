@@ -11,8 +11,7 @@ import { Avatar } from '../Avatar';
 
 export function Profile() {
 
-  const{user} = useAuth();
-  console.log(user);
+  const{user} = useAuth();  
 
   return (
     <View style={styles.container}>
