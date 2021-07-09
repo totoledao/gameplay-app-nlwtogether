@@ -17,10 +17,10 @@ export const styles = StyleSheet.create({
     marginRight: 20
   },
   content: {
-    //flex: 1,
+    flex: 1,
   },
   header: {
-    //width: '100%',
+    width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
     marginBottom: 12,
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     marginRight: 24,
   },
   footer: {
-    //width: '100%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Children } from 'react';
 import { ImageBackground } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { 
@@ -6,7 +6,10 @@ import {
   Text,
   FlatList,  
   Alert,
+  Share,
+  Platform,
 } from 'react-native';
+import * as Linking from 'expo-linking';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
@@ -37,7 +40,7 @@ export function AppointmentDetails() {
 
   const [widget, setWidget] = useState<GuildWidget>({} as GuildWidget);
   const [loading, setLoading] = useState(true);
-
+  
   const route = useRoute();
   const { guildSelected } = route.params as Params;
 
@@ -54,6 +57,24 @@ export function AppointmentDetails() {
     
   }
 
+  function handleShareInvitation() {
+    let message;
+
+    if(Platform.OS === 'ios' || widget.instant_invite === null) { 
+      message = `Junte-se a ${guildSelected.guild.name}`
+    }else{
+      message = widget.instant_invite;
+    };
+    Share.share({
+      message,
+      url: widget.instant_invite
+    });
+  }
+
+  function handleOpenGuild() {
+    Linking.openURL(widget.instant_invite);
+  }
+
   useEffect(() => {
     fetchGuildWidget();
   },[])
@@ -62,8 +83,9 @@ export function AppointmentDetails() {
     <Background>
 
       <Header
-        title= "Detalhes"
-        action= {true}
+        title= "Detalhes"        
+        action= {guildSelected.guild.owner}
+        buttonClick= {handleShareInvitation}
       />
 
       <ImageBackground
@@ -103,11 +125,13 @@ export function AppointmentDetails() {
             style={styles.members}
           />
 
-          <View style={styles.footerButton}>
-            <ButtonIcon            
-              title='Entrar na partida'
-            />
-          </View>
+          { guildSelected.guild.owner &&
+            <View style={styles.footerButton}>
+              <ButtonIcon            
+                title='Entrar na partida'
+                onPress={handleOpenGuild}
+              />          
+          </View> } 
         </>
       }
 

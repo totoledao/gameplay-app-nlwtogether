@@ -7,7 +7,8 @@ import {
   ScrollView,
   Image,
   KeyboardAvoidingView,
-  Platform  
+  Platform,
+  Alert
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import uuid from 'react-native-uuid';
@@ -203,7 +204,13 @@ export function AppointmentCreate() {
           <View style={styles.footer}>
               <Button
               title={"Agendar"}
-              onPress={handleSaveAppointment}
+              onPress={() => {
+                if (guild.name && category) {
+                  handleSaveAppointment()
+                }
+               else {
+                Alert.alert("Ei!", "Escolha pelo menos a categoria e um servidor")}      
+              }}
               />
           </View>
 

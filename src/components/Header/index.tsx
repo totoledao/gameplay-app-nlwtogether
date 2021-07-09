@@ -5,7 +5,8 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { Feather, Fontisto } from '@expo/vector-icons';
 import { 
   View,
-  Text,    
+  Text,  
+  Share,  
 } from 'react-native';
 
 import { styles } from './styles';
@@ -14,9 +15,10 @@ import { theme } from '../../global/styles/theme';
 type Props = {
   title: string;
   action?: boolean;
+  buttonClick?: () => void;     
 }
 
-export function Header({title, action} : Props) {
+export function Header({title, action, buttonClick, ...rest} : Props) {
 
   const navigation = useNavigation();
 
@@ -48,11 +50,11 @@ export function Header({title, action} : Props) {
           action
           ?
 
-          <BorderlessButton>
+          <BorderlessButton onPress={buttonClick}>
             <Fontisto
               name= "share"
               size={24}
-              color={theme.colors.primary}
+              color={theme.colors.primary}              
             />
           </BorderlessButton>
 
