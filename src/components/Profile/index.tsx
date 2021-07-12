@@ -13,7 +13,7 @@ import { Avatar } from '../Avatar';
 
 export function Profile() {
 
-  const{ user } = useAuth();
+  const{ user, signOut } = useAuth();
   
   function handleSignOut() {
     Alert.alert('Logout', 'Deseja sair do GamePlay?',
@@ -24,7 +24,7 @@ export function Profile() {
       },
       {
         text: 'Sim',
-        onPress: () => {}
+        onPress: () => {signOut()}
       }
     ])}
 
