@@ -2,11 +2,12 @@
 <!-- PROJECT SHIELDS -->
 <!-- See the bottom of this document for the declaration of the reference variables -->
 
-[![MIT License][license-shield]][license-url]
-![Size](https://github-size-badge.herokuapp.com/:owner/:repo.svg)
+[![License: MIT][license-shield]][license-url]
+![Size](https://github-size-badge.herokuapp.com/totoledao/gameplay-app-nlwtogether.svg)
 
 [![React Native][reactnative-shield]][reactnative-url]
 [![Type Script][typescript-shield]][typescript-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -14,7 +15,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/totoledao/gameplay-app-nlwtogether">
-    <img src="readmeAssets/GamePlay%20logo.png" alt="Logo" width="150">
+    <img src="readmeAssets/GamePlay%20Logo.png" alt="Logo" width="150">
   </a>
 
   <h3 align="center">GamePlay</h3>
@@ -36,7 +37,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#libraries">Technologies</a></li>
+        <li><a href="#technologies">Technologies</a></li>
       </ul>
     </li>
     <li>
@@ -127,15 +128,16 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-<img src="readmeAssets/signin.png" alt="Logo" width="200">
+
+<img src="readmeAssets/signIn.png" alt="SignIn screen" width="200">
 
 Login using your Discord account
 
-<img src="readmeAssets/show%20all.png" alt="Logo" width="200">
+<img src="readmeAssets/show%20all.png" alt="Scheduled games" width="200">
 
 Schedule your gaming session
 
-<img src="readmeAssets/share.gif" alt="Logo" width="200">
+<img src="readmeAssets/share.gif" alt="Share instant invite" width="200">
 
 Invite your friends to join your server
 
@@ -157,7 +159,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`][license-url] for more information.
 
 
 
@@ -174,14 +176,13 @@ Guilherme Toledo - guilherme-toledo@live.com
 
 Project Link: [https://github.com/totoledao/gameplay-app-nlwtogether](https://github.com/totoledao/gameplay-app-nlwtogether)
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[license-shield]: https://img.shields.io/github/license/totoledao/repo.svg?style=for-the-badge
-[license-url]: https://github.com/totoledao/gameplay-app-nlwtogether/blob/main/license
+[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
+[license-url]: https://github.com/totoledao/gameplay-app-nlwtogether/blob/main/MIT-LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0e76a8
-[linkedin-url]: www.linkedin.com/in/guilhermemtoledo
+[linkedin-url]: http://www.linkedin.com/in/guilhermemtoledo
 [reactnative-shield]:https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [reactnative-url]: https://reactnative.dev/
 [typescript-shield]:https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
