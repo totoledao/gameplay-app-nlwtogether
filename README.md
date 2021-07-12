@@ -3,7 +3,9 @@
 <!-- See the bottom of this document for the declaration of the reference variables -->
 
 [![License: MIT][license-shield]][license-url]
+![Version](https://img.shields.io/badge/version-1.0.0-6bd4a7)
 ![Size](https://github-size-badge.herokuapp.com/totoledao/gameplay-app-nlwtogether.svg)
+![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-7F00FF)
 
 [![React Native][reactnative-shield]][reactnative-url]
 [![Type Script][typescript-shield]][typescript-url]
@@ -63,7 +65,7 @@
 
 **Schedule your games, check what games are coming, categorize and sort your games by Ranked, Duel, Training or For Fun, share discord invites from your server with your friends and never forget a gaming session again!**
 
-App created during Next Level Week Together from [Rocketseat](https://rocketseat.com.br/).
+App created during Next Level Week Together by [Rocketseat](https://rocketseat.com.br/).
 
 ### Built With
 
@@ -179,7 +181,7 @@ Project Link: [https://github.com/totoledao/gameplay-app-nlwtogether](https://gi
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
+[license-shield]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-url]: https://github.com/totoledao/gameplay-app-nlwtogether/blob/main/MIT-LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0e76a8
 [linkedin-url]: http://www.linkedin.com/in/guilhermemtoledo
