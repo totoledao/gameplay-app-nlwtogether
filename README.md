@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/totoledao/gameplay-app">
-    <img src="readmeAssets/GamePlay%20Logo.png" alt="Logo" width="150">
+    <img src="readmeAssets/GamePlay%20Logo.png" alt="GamePlay Logo" width="150">
   </a>
   
   <p align="center">
