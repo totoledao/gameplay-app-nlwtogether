@@ -15,9 +15,7 @@
   <a href="https://github.com/totoledao/gameplay-app">
     <img src="readmeAssets/GamePlay%20Logo.png" alt="Logo" width="150">
   </a>
-
-  <h3 align="center">GamePlay</h3>
-
+  
   <p align="center">
     Schedule and manage your gaming sessions!
     <br />
