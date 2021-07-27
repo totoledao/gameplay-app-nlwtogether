@@ -1,10 +1,6 @@
-
-<!-- PROJECT SHIELDS -->
-<!-- See the bottom of this document for the declaration of the reference variables -->
-
 [![License: MIT][license-shield]][license-url]
 ![Version](https://img.shields.io/badge/version-1.0.0-6bd4a7)
-![Size](https://github-size-badge.herokuapp.com/totoledao/gameplay-app-nlwtogether.svg)
+![Size](https://github-size-badge.herokuapp.com/totoledao/gameplay-app.svg)
 ![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-7F00FF)
 
 [![React Native][reactnative-shield]][reactnative-url]
@@ -16,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/totoledao/gameplay-app-nlwtogether">
+  <a href="https://github.com/totoledao/gameplay-app">
     <img src="readmeAssets/GamePlay%20Logo.png" alt="Logo" width="150">
   </a>
 
@@ -25,7 +21,7 @@
   <p align="center">
     Schedule and manage your gaming sessions!
     <br />
-    <a href="https://github.com/totoledao/gameplay-app-nlwtogether"><strong>Explore the docs »</strong></a>    
+    <a href="https://github.com/totoledao/gameplay-app"><strong>Explore the docs »</strong></a>    
   </p>
 </p>
 
@@ -109,7 +105,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/totoledao/gameplay-app-nlwtogether.git
+   git clone https://github.com/totoledao/gameplay-app.git
    ```
 2. Install dependencies
    ```sh
@@ -176,13 +172,13 @@ Guilherme Toledo - guilherme-toledo@live.com
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=whit)](https://www.github.com/totoledao)
 
 
-Project Link: [https://github.com/totoledao/gameplay-app-nlwtogether](https://github.com/totoledao/gameplay-app-nlwtogether)
+Project Link: [https://github.com/totoledao/gameplay-app](https://github.com/totoledao/gameplay-app)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [license-shield]: https://img.shields.io/badge/License-MIT-blue.svg
-[license-url]: https://github.com/totoledao/gameplay-app-nlwtogether/blob/main/MIT-LICENSE.txt
+[license-url]: https://github.com/totoledao/gameplay-app/blob/main/MIT-LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0e76a8
 [linkedin-url]: http://www.linkedin.com/in/guilhermemtoledo
 [reactnative-shield]:https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
