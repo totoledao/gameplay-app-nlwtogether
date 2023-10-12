@@ -1,6 +1,6 @@
 [![License: MIT][license-shield]][license-url]
 ![Version](https://img.shields.io/badge/version-1.0.0-6bd4a7)
-![Size](https://github-size-badge.herokuapp.com/totoledao/gameplay-app.svg)
+![Size](https://img.shields.io/github/repo-size/totoledao/gameplay-app)
 ![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-7F00FF)
 
 [![React Native][reactnative-shield]][reactnative-url]
